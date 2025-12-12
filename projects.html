@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects - Harshad</title>
+
+<style>
+/* -------------------------------- GLOBAL RESET -------------------------------- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* -------------------------------- PAGE TRANSITION -------------------------------- */
+body {
+    opacity: 0;
+    animation: fadeInPage 1.2s ease forwards;
+    font-family: 'Poppins', Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    overflow-x: hidden;
+}
+@keyframes fadeInPage { to { opacity: 1; } }
+
+/* -------------------------------- PARTICLES -------------------------------- */
+#particles {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+.particle {
+    position: absolute;
+    background: #9fc5ff;
+    border-radius: 50%;
+    opacity: 0.8;
+    box-shadow: 0 0 15px #cfe4ff;
+    animation: floatParticles linear infinite;
+}
+@keyframes floatParticles {
+    0% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(-60px) translateX(20px); }
+    100% { transform: translateY(-120px) translateX(-20px); }
+}
+
+/* -------------------------------- NAVBAR -------------------------------- */
+nav {
+    position: fixed;
+    top: 0; width: 100%;
+    padding: 18px;
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255,255,255,0.4);
+    box-shadow: 0 4px 25px rgba(0,0,0,0.2);
+    z-index: 10;
+    transition: 0.3s ease;
+}
+nav.scrolled {
+    background: rgba(255,255,255,0.28);
+    box-shadow: 0 0 25px rgba(180,200,255,0.8);
+}
+nav a {
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+    text-decoration: none;
+    position: relative;
+    transition: 0.3s;
+}
+/* Underline animation */
+nav a::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    height: 3px;
+    width: 0;
+    background: #ffd700;
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+nav a:hover::after { width: 100%; }
+
+/* -------------------------------- HEADING -------------------------------- */
+h2 {
+    text-align: center;
+    font-size: 48px;
+    margin-top: 140px;
+    text-shadow: 0 0 18px rgba(255,255,255,0.6);
+    animation: fadeUp 1.2s ease;
+}
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* -------------------------------- GRID -------------------------------- */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 20px;
+    animation: fadeContent 1.2s ease;
+}
+@keyframes fadeContent {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* -------------------------------- CARDS -------------------------------- */
+.card {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(12px);
+    padding: 35px 20px;
+    border-radius: 18px;
+    text-align: center;
+    font-size: 22px;
+
+    border: 2px solid rgba(255,255,255,0.25);
+    box-shadow: 0 0 20px rgba(150,180,255,0.4);
+
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: 0.4s ease;
+}
+.card:hover {
+    transform: perspective(700px) rotateX(10deg) rotateY(-10deg) scale(1.06);
+    box-shadow: 0 18px 40px rgba(255,255,255,0.4);
+}
+
+/* Icon / Emoji */
+.card::before {
+    content: "✨";
+    font-size: 30px;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    animation: float 2.5s infinite ease-in-out;
+}
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+}
+
+.card a {
+    color: #ffd700;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 24px;
+}
+.card a:hover {
+    letter-spacing: 1px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Floating Particles -->
+<div id="particles"></div>
+
+<!-- Navigation -->
+<nav id="navbar">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="interests.html">Interests</a>
+    <a href="skills.html">Skills</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<!-- Heading -->
+<h2>My Projects</h2>
+
+<!-- Cards Grid -->
+<div class="grid">
+    <div class="card"><a href="BEE CIA activity.docx">BEE Project</a></div>
+    <div class="card"><a href="html.jpg">IT Project</a></div>
+    <div class="card"><a href="Department_of_Electrical_Engineering FINAL  1.pptx">Chemistry Project</a></div>
+</div>
+
+<!-- Scripts -->
+<script>
+/* Create floating particles */
+function createParticles() {
+    const container = document.getElementById("particles");
+    for (let i = 0; i < 60; i++) {
+        let p = document.createElement("div");
+        p.classList.add("particle");
+
+        p.style.left = Math.random() * 100 + "vw";
+        p.style.top = Math.random() * 100 + "vh";
+
+        let size = Math.random() * 7 + 4;
+        p.style.width = size + "px";
+        p.style.height = size + "px";
+
+        p.style.animationDuration = Math.random() * 10 + 8 + "s";
+
+        container.appendChild(p);
+    }
+}
+createParticles();
+
+/* Navbar Glow on Scroll */
+window.addEventListener("scroll", () => {
+    const nav = document.getElementById("navbar");
+    if (scrollY > 20) nav.classList.add("scrolled");
+    else nav.classList.remove("scrolled");
+});
+</script>
+
+</body>
+</html>

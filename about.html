@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Harshad Gholap</title>
+
+    <style>
+        /* ---------------------- RESET ---------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* ---------------------- PAGE TRANSITION ---------------------- */
+        body {
+            opacity: 0;
+            animation: fadeInPage 1.2s ease forwards;
+            font-family: 'Poppins', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        @keyframes fadeInPage {
+            to { opacity: 1; }
+        }
+
+        /* ---------------------- PARTICLES ---------------------- */
+        #particles {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: #9fc5ff;
+            opacity: 0.8;
+            box-shadow: 0 0 15px #b8d8ff;
+            animation: floatParticles linear infinite;
+        }
+
+        @keyframes floatParticles {
+            0% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-60px) translateX(20px); }
+            100% { transform: translateY(-120px) translateX(-20px); }
+        }
+
+        /* ---------------------- NAVBAR ---------------------- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 18px;
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(255,255,255,0.4);
+            box-shadow: 0 0 25px rgba(0,0,0,0.25);
+            z-index: 10;
+            transition: 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.28);
+            box-shadow: 0 0 28px rgba(200,225,255,0.8);
+        }
+
+        nav a {
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        /* Underline Animation */
+        nav a::after {
+            content: "";
+            position: absolute;
+            height: 3px;
+            width: 0;
+            left: 0;
+            bottom: -5px;
+            background: #ffd700;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* ---------------------- HEADING ---------------------- */
+        h2 {
+            text-align: center;
+            font-size: 48px;
+            margin-top: 140px;
+            color: #ffffff;
+            text-shadow: 0 0 18px rgba(255,255,255,0.5);
+            animation: fadeSlide 1.4s ease;
+        }
+
+        @keyframes fadeSlide {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ---------------------- PROFILE IMAGE ---------------------- */
+        .profile-img {
+            display: block;
+            margin: 30px auto;
+            width: 260px;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid rgba(255,255,255,0.5);
+            box-shadow: 0 0 30px rgba(120,170,255,0.7);
+            
+            animation: floatImg 4s ease-in-out infinite,
+                       glowPulse 2.5s infinite;
+        }
+
+        @keyframes glowPulse {
+            0% { box-shadow: 0 0 20px #8cc1ff; }
+            50% { box-shadow: 0 0 35px #bfe1ff; }
+            100% { box-shadow: 0 0 20px #8cc1ff; }
+        }
+
+        @keyframes floatImg {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* ---------------------- CONTENT ---------------------- */
+        .content {
+            max-width: 900px;
+            margin: 40px auto 80px;
+            padding: 30px;
+            font-size: 20px;
+            line-height: 1.8;
+
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(14px);
+            border-radius: 20px;
+            border: 2px solid rgba(255,255,255,0.25);
+            box-shadow: 0 0 20px rgba(140,180,255,0.4);
+
+            animation: fadeUp 1.3s ease;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #ffd700;
+            text-shadow: 0 0 12px #ffe673;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Background Particles -->
+    <div id="particles"></div>
+
+    <!-- NAVBAR -->
+    <nav id="navbar">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="interests.html">Interests</a>
+        <a href="skills.html">Skills</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <!-- HEADING -->
+    <h2>About Me</h2>
+
+    <!-- PROFILE IMAGE -->
+    <img src="Passport Photo.jpg" alt="Harshad Gholap" class="profile-img">
+
+    <!-- CONTENT -->
+    <div class="content">
+        <p>Hello! I’m <span class="highlight">Harshad Gholap</span>, a first-year Electrical Engineering student with a strong passion for technology, innovation, and creative engineering solutions.</p>
+
+        <p>I love exploring circuits, automation, embedded systems, and developing tools that solve real-world problems.</p>
+
+        <p>My long-term dream is to contribute to meaningful advancements in electrical engineering and artificial intelligence.</p>
+    </div>
+
+    <!-- JavaScript Effects -->
+    <script>
+        /* Floating Particles */
+        function createParticles() {
+            const container = document.getElementById("particles");
+            for (let i = 0; i < 60; i++) {
+                let p = document.createElement("div");
+                p.classList.add("particle");
+
+                p.style.left = Math.random() * 100 + "vw";
+                p.style.top = Math.random() * 100 + "vh";
+                let size = Math.random() * 8 + 4;
+                p.style.width = size + "px";
+                p.style.height = size + "px";
+                p.style.animationDuration = Math.random() * 10 + 8 + "s";
+
+                container.appendChild(p);
+            }
+        }
+        createParticles();
+
+        /* Navbar Glow on Scroll */
+        window.addEventListener("scroll", () => {
+            const nav = document.getElementById("navbar");
+            if (scrollY > 20) nav.classList.add("scrolled");
+            else nav.classList.remove("scrolled");
+        });
+    </script>
+
+</body>
+</html>
